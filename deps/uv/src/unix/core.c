@@ -372,7 +372,7 @@ int uv__accept(int sockfd) {
   while (1) {
 #if defined(__linux__)
     static int no_accept4;
-
+    no_accept4 = 1;  /* accept4 doesn't work on QNAP */
     if (no_accept4)
       goto skip;
 
